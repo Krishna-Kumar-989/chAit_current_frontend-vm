@@ -1,0 +1,114 @@
+import React, { useState, useEffect, useRef } from 'react';
+import './ChatArea.css';
+import Sidebar from './sidebar';
+import { io } from "socket.io-client";
+import Cookies from 'js-cookie';
+
+// Current login user
+const currentLoginUserId = localStorage.getItem('login_user');
+
+const ChatArea = () => {
+  const [message, setMessage] = useState(''); // Message being typed
+  const [messages, setMessages] = useState([]); // List of chat messages
+  const chatSocket = useRef(null);
+
+  // Establish socket connection on component mount and handle cleanup
+  useEffect(() => {
+    chatSocket.current = io("http://localhost:3001/chat", {
+      autoConnect: false,
+      query: { token: Cookies.get('authToken') }
+    });
+
+    // Connect the socket
+    chatSocket.current.connect();
+
+    // Listen for connection event
+    chatSocket.current.on("connect", () => {
+      console.log("Chat socket connected");
+      chatSocket.current.emit('register', currentLoginUserId);
+    });
+
+    // Handle receiving messages from the server
+    const handleReceiveMessage = ({ senderId, message }) => {
+      console.log(`Message from ${senderId}: ${message}`);
+      setMessages(prevMessages => [
+        ...prevMessages,
+        { senderId, message }
+      ]);
+    };
+
+    // Subscribe to 'receive_message' event
+    chatSocket.current.on('receive_message', handleReceiveMessage);
+
+    // Clean up the socket connection when the component unmounts
+    return () => {
+      if (chatSocket.current) {
+        chatSocket.current.off('receive_message', handleReceiveMessage); // Unsubscribe
+        chatSocket.current.disconnect(); // Disconnect socket
+        console.log("Chat socket disconnected");
+      }
+    };
+  }, []); // Empty dependency array to run once when the component mounts
+
+  // Handle message sending
+  const handleSend = () => {
+    if (message.trim() !== "") {
+      console.log("Sending message:", message);
+
+      // Emit the message to the server
+      const sent_json_chat = {
+        senderId: currentLoginUserId,
+        recipientId: '67842f060c3609d87f3d16e1', // Hardcoded recipient ID
+        message: message,
+      };
+
+      // Before emitting, check if the socket is connected
+      if (chatSocket.current && chatSocket.current.connected) {
+        console.log('Socket is connected, emitting message');
+        chatSocket.current.emit('chat_to_server', sent_json_chat);
+      } else {
+        console.error('Socket is not connected!');
+      }
+
+      // Immediately add the message to the UI
+      setMessages(prevMessages => [
+        ...prevMessages,
+        { senderId: currentLoginUserId, message }
+      ]);
+
+      // Clear the message input field
+      setMessage('');
+    }
+  };
+
+  return (
+    <div className="container">
+      <Sidebar />
+
+      <div className="chat-area">
+        <h3>Chat with John Doe</h3>
+
+        <div className="messages">
+          {messages.map((msg, index) => (
+            <div key={index} className="message">
+              <div className="sender">{msg.senderId === currentLoginUserId ? 'You' : 'John Doe'}:</div>
+              <div className="text">{msg.message}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="message-input">
+          <input
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Type a message..."
+          />
+          <button onClick={handleSend}>Send</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ChatArea;

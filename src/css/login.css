@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.login_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.loginform {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.loginform label {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.loginform p {
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.phone, .password {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.phone:focus, .password:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.submit {
+  width: 100%;
+  padding: 10px;
+  background-color: wheat;
+  border: none;
+  border-radius: 4px;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+
+}
+
+.submit:hover {
+  background-color: whitesmoke;
+}
+
+.forgotpassword {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgotpassword:hover {
+  text-decoration: underline;
+  
+}
+
+#passforget{
+  color: red;
+}
+
+

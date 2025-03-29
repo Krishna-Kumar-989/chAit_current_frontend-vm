@@ -1,0 +1,37 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+
+
+
+
+
+.app {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap ;
+  flex: 1;
+  padding: 20px;
+}
+
+.sidebar {
+
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.chatArea {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  height: 100%;
+}

@@ -1,0 +1,173 @@
+.msidebar {
+  width: 45vw;
+display: flex;
+flex-direction: column;
+  background-color:silver;
+  background: linear-gradient(135deg, #a7d8ff, #bfa5a1);
+  background:dimgray;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  word-wrap: break-word;
+}
+
+.msidebar h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.msidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.msidebar li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  word-wrap: break-word;
+
+}
+
+.msidebar li:hover {
+  background-color: #ddd;
+}
+
+
+
+.msearchdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.msearch {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #dcdcdc;
+  border-radius: 25px;
+  box-sizing: border-box;
+  background: linear-gradient(45deg, #ffffff, #f0f0f0);
+  text-align: center;
+}
+
+.msearch:focus {
+  outline: none;
+  border: 1px solid #b0b0b0;
+}
+
+.msearch::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+
+
+
+
+
+
+.mlistcontainer{
+
+   
+  overflow-y: auto;  
+  border: 1px solid #ddd;
+  margin: 10px;
+   border-radius: 10px;
+   height: 100%;
+
+  background-color:silver;
+  display: flex;
+  flex-direction: column;
+}
+
+.mtopsidebar{
+  
+display: flex;
+
+background: transparent;
+align-items: center;
+
+
+
+}
+
+
+
+.contactslabel{
+  width:100%
+}
+
+
+.newcontactcontainer{
+
+ 
+
+}
+
+
+ 
+  .newcontact {
+    position: fixed;
+    bottom: 0.5%;
+    left: 0.5%;
+    background-color: burlywood;
+    color: white;
+    font-size: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .newcontact:hover {
+    background-color: sandybrown;
+    transform: translateY(-5px);
+  }
+  
+
+
+
+
+
+ 
+
+
+.searchlistlistinfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.searchlistlistphone {
+  font-size: small;
+  color: darkslategrey;
+  line-height: 1.5;
+}
+
+
+.contactslabel{
+  text-align: center;
+}
+
+.highlighted {
+  background-color: #e0e0e0; 
+  font-weight: bold;        
+}
+
+
+
+
+
+
+
+

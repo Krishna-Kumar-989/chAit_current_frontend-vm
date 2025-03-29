@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+.login_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.loginform {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  text-align: center;
+}
+
+.loginform label {
+  font-size: 22px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+.loginform p {
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-align: left;
+  margin-left: 10px;
+  
+}
+
+.username, .phone, .password, .confirm_password, .profile_image {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+}
+
+.username:focus, .phone:focus, .password:focus, .confirm_password:focus, .profile_image:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.profileimgdiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profileimgdiv p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.profileImage {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.profileImage:hover {
+  border-color: #007BFF;
+}
+
+.profileImage:focus {
+  outline: none;
+  border-color: #0056b3;
+}
+
+.profileImage::file-selector-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profileImage::file-selector-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.username:focus, .phone:focus, .password:focus, .confirm_password:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+
+
+
+.error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 8px;
+  align-self: center;
+  
+}
+
+#errorid{
+  color: #e74c3c;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+
+
+.submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+  background-color: #2980b9;
+}
+
+.forgotpassword {
+  display: block;
+  margin-top: 12px;
+  color: #3498db;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgotpassword:hover {
+  text-decoration: underline;
+}
