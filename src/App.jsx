@@ -4,7 +4,7 @@ import Login from './Login';
 import Signup from './signup';
 import Homepage from './homepage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import AddContact from './components/addcontact';
+import AddContact from './components/Addcontact';
 import Contactinfo from './components/contactinfo';
 import { SelectedcontactProvider } from './context/SelectedcontactContext';
 
